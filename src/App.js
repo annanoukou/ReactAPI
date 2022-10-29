@@ -18,16 +18,52 @@ const App = () => {
     //     setMovies(data.Search);
     //     setLoading(false)
     // }
+
+
+    // const searchMovies = (title) => {
+    //     fetch(`${API_URL}&s=${title}`)
+    //         .then(response => {
+    //             if (!response.ok) {
+    //                 throw Error(response.statusText);
+    //             }
+    //             return response.json()
+    //         })
+    //         .then(data => {
+    //             setMovies(data.Search)
+    //             setLoading(false)
+    //         })
+    //         .catch(function(error) {
+    //             console.log(error)
+    //         })
+    // }
     
     useEffect(() => {
-        const searchMovies = async () => {
-            const response = await fetch(`${API_URL}&s=${title}`);
-            const data = await response.json()
+        const searchMovies = async (title) => {
+            const response = await fetch(`${API_URL}ii&s=${title}`)
+
+            if (!response.ok) {
+                console.log('ok')
+                const message = `An errorrrr has occured: ${response.status}`;
+                throw new Error(message);
+            }
+
+            const data = await response.json();
+            
+            console.log(data.Search)
+             
             setMovies(data.Search);
             setLoading(false)
         }
+        // const searchMovies = async (title) => {
+        //     const response = await fetch(`${API_URL}&s=${title}`);
+        //     const data = await response.json()
+        //     setMovies(data.Search);
+        //     setLoading(false)
+        // }
+ 
+        // searchMovies("Batman").catch(console.log(console.error))
 
-        searchMovies().catch(console.log(console.error))
+        searchMovies("Batman").catch(console.log(console.error))
     }, [])
 
     if (loading) {
@@ -49,7 +85,7 @@ const App = () => {
                     <img
                     src={SearchIcon}
                     alt="search"
-                    onClick={() => searchMovies(searchTerm)}
+                    // onClick={() => searchMovies(searchTerm)}
                     />
                 </div>
             
