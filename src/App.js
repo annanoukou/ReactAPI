@@ -42,7 +42,7 @@ const App = () => {
             const response = await fetch(`${API_URL}ii&s=${title}`)
 
             if (!response.ok) {
-                console.log('ok')
+                
                 const message = `An errorrrr has occured: ${response.status}`;
                 throw new Error(message);
             }
