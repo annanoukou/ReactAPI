@@ -49,8 +49,6 @@ const App = () => {
 
             const data = await response.json();
             
-            console.log(data.Search)
-             
             setMovies(data.Search);
             setLoading(false)
         }
