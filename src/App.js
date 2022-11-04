@@ -43,7 +43,6 @@ const App = () => {
 
             if (!response.ok) {
   
-                
                 const message = `An errorrrr has occured: ${response.status}`;
                 throw new Error(message);
             }
