@@ -36,7 +36,7 @@ const App = () => {
     //             console.log(error)
     //         })
     // }
-    
+    // async  
     useEffect(() => {
         const searchMovies = async (title) => {
             const response = await fetch(`${API_URL}ii&s=${title}`)
